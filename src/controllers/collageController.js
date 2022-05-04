@@ -1,10 +1,10 @@
 const collageModel = require("../models/collageModel")
 
-//const jwt = require('jsonwebtoken')
-
-// const validator = require("email-validator")
 
 ////////////////////////////////////////////////Create Collage////////////////////////////////////////////////////////////////
+
+
+
 
 const createCollage = async (req, res) => {
     try {

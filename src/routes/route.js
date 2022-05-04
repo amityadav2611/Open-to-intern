@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const collageCont= require("../controllers/collageController")
+const collageCont = require("../controllers/collageController")
 
 
 
