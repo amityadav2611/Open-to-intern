@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 
 const isValid = function (value) {
     if (typeof value === 'undefined' || value === null) return false
-    if (typeof value === 'string' && value.trim().length === 0) return false 
+    if (typeof value === 'String' && value.trim().length === 0) return false
     return true;
 }
 
@@ -13,7 +13,7 @@ const isValidBody = function (requestBody) {
 }
 
 const isValidName = function (value) {
-    if(!(value === value.toLowerCase())) {
+    if (!(value === value.toLowerCase())) {
         return false
     }
     return true
@@ -34,7 +34,7 @@ const isValidEmail = function (value) {
     return true
 }
 
-const isValidLink = function(value) {
+const isValidLink = function (value) {
     if (!(/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/.test(value.trim()))) {
         return false
     }

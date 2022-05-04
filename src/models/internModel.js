@@ -15,13 +15,6 @@ const internSchema = new mongoose.Schema({
         required: 'Please Enter a Name'
     },
 
-    email: {
-        type: String,
-        unique: true,
-        trim:true,
-        required: 'Please Enter a email',
-
-    },
     mobile: {
         type: String,
         unique: true,

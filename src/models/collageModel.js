@@ -6,32 +6,27 @@ const collageSchema = new mongoose.Schema({
         type: String,
         unique: true,
         required: true,
-        trim:true
+        trim: true
     },
     fullName: {
         type: String,
-        trim:true,
-        required: 'Please enter a name'
-},
-    fullName: {
-    type: String,
-    trim:true,
-    required: 'Please enter a fullname'
-},
+        required: 'Please enter a fullname',
+        trim:true
+    },
     logoLink: {
-    type: String,
-    trim:true,
-    required: 'please link a logolink'
-},
+        type: String,
+        trim: true,
+        required: 'please link a logolink'
+    },
     // interests: {
     //     type: ObjectId,
     //     ref: "intern"
     // },
 
     isDeleted: {
-    type: Boolean,
-    default: false
-},
+        type: Boolean,
+        default: false
+    },
 }, { timestamps: true });
 
 

@@ -4,7 +4,8 @@
   "description": "This is the my second project called Open-to-intern",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,13 @@
   },
   "homepage": "https://github.com/amityadav2611/Open-to-intern#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "email-validator": "^2.0.4",
     "express": "^4.18.1",
-    "mongoose": "^6.3.2"
+    "module": "^1.0.0",
+    "mongoose": "^6.3.2",
+    "nodemon": "^2.0.16",
+    "validator": "^13.7.0"
   }
 }
