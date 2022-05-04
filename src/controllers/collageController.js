@@ -41,7 +41,7 @@ const collegeDetails = async (req, res) => {
         if(!getCollegeData) return res.status(404).send({ status: false, Error: "College not found! check the name and try again" });
 
         let {...data} = getCollegeData._doc
-        console.log(data)
+        // console.log(data)
 
         let getInterns = await internModel.find({ collegeId: data._id }).select({ name: 1, email: 1, mobile: 1 });
         //console.log(getInterns)
