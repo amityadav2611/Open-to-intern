@@ -27,9 +27,8 @@ const internSchema = new mongoose.Schema( {
             },message: "please fill a valid mobile number"
         }
     },
-    collageId: {
+    collegeId: {
         type: ObjectId,
-        required: true,
         ref: "collage"
     },
     isDeleted: {
