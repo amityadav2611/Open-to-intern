@@ -29,4 +29,4 @@ let getDetails = async (req, res) => {
     }
 }
 
-module.exports.createIntern = createIntern;
+module.exports = {createIntern,getDetails}
