@@ -1,19 +1,24 @@
 const mongoose = require('mongoose');
+//const ObjectId = mongoose.Schema.Types.ObjectId
 
 const collageSchema = new mongoose.Schema( {
     name: {
         type: String,
         unique: true,
-        required: true
+        required: 'Please enter a name'
     }, 
     fullName: {
         type: String,
-        required: true
+        required: 'Please enter a fullname'
     }, 
     logoLink: {
         type: String,
-        required: true
+        required: 'please link a logolink'
     },
+    // interests: {
+    //     type: ObjectId,
+    //     ref: "intern"
+    // },
     
     isDeleted: {
         type: Boolean,

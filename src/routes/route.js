@@ -11,9 +11,14 @@ router.get("/test-me", function (req, res) {
 })
 
 
-router.post("/collages",  collageCont.createCollage)
+router.post("/functionup/colleges",  collageCont.createCollage)
 
-router.post("/interns",  internCont.createIntern)
+router.post("/functionup/interns",  internCont.createIntern)
+
+//router.get("/collegeDetails", internCont.getDetails)
+
+router.get("/functionup/collegeDetails", collageCont.collegeDetails)
+
 
 
 module.exports = router;
