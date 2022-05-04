@@ -1,0 +1,23 @@
+{
+  "name": "open-to-intern",
+  "version": "1.0.0",
+  "description": "This is the my second project called Open-to-intern",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amityadav2611/Open-to-intern.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amityadav2611/Open-to-intern/issues"
+  },
+  "homepage": "https://github.com/amityadav2611/Open-to-intern#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.3.2"
+  }
+}
