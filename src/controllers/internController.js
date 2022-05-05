@@ -32,18 +32,4 @@ const createIntern = async (req, res) => {
         res.status(500).send({ status: false, Error: err.message })
     }
 }
-
-
-//get
-let getDetails = async (req, res) => {
-    try {
-        let intern = await internModel.find()
-        //res.send({ data: bookget})
-        res.status(200).send({ status: true, message: "Collage Details", data: intern })  //it will send the data to response body
-    } catch (err) {
-        res.status(500).send({ status: false, Error: err.message });
-
-    }
-}
-
-module.exports = { createIntern, getDetails }
+module.exports = { createIntern}
