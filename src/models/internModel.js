@@ -18,13 +18,13 @@ const internSchema = new mongoose.Schema({
     mobile: {
         type: String,
         unique: true,
-        trim:true,
+        trim: true,
         required: 'Please enter a number',
         minlength: 10,
         maxlength: 10,
 
     },
-    collageId: {
+    collegeId: {
         type: ObjectId,
         required: true,
         trim: true,
