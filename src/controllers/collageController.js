@@ -10,6 +10,10 @@ const createCollage = async (req, res) => {
 
         let data = req.body      //data receiving from the request body
 
+        if(!data.name) return res.status(400).send({status: false, Error: "Name is Required"})
+        if(!data.fullName) return res.status(400).send({status: false, Error: "fullName is Required"})
+        if(!data.logoLink) return res.status(400).send({status: false, Error: "logoLink is Required"})
+
         const { name, fullName, logoLink, isDeleted } = data
         //Validate the body
 
@@ -20,7 +24,7 @@ const createCollage = async (req, res) => {
         //validate the name
 
         if (!validator.isValid(data.name)) {
-            return res.status(400).send({ status: false, Msg: "College Name is reuired" })
+            return res.status(400).send({ status: false, Msg: "College Name is reuired" }) 
         }
 
         // Validation of name in lowercase
