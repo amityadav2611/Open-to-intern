@@ -7,6 +7,7 @@ const validator = require("../Validator/validator")
 
 const createCollage = async (req, res) => {
     try {
+
         let data = req.body      //data receiving from the request body
 
         const { name, fullName, logoLink, isDeleted } = data
@@ -18,7 +19,7 @@ const createCollage = async (req, res) => {
 
         //validate the name
 
-        if (!validator.isValid(name)) {
+        if (!validator.isValid(data.name)) {
             return res.status(400).send({ status: false, Msg: "College Name is reuired" })
         }
 
@@ -37,7 +38,7 @@ const createCollage = async (req, res) => {
         // validate the logolink 
 
         if (!validator.isValid(logoLink)) {
-            return res.status(400).send({ status: false, msg: "Valid Logo link is required" })
+            return res.status(400).send({ status: false, msg: " Logo link is required" })
         }
 
         // Validate the Link of the logo
@@ -81,7 +82,7 @@ const createCollage = async (req, res) => {
 
         if (isDeleted === true) {
             return res.status(400).send({ status: false, msg: "New entries can't be deleted" });
-        } 
+        }
 
         let showCollegeData = await collageModel.create(data);
         res.status(201).send({ status: true, message: "Collage created successfully", data: showCollegeData })
