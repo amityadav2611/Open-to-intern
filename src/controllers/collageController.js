@@ -10,6 +10,11 @@ const createCollage = async (req, res) => {
         let data = req.body      //data receiving from the request body
 
         const { name, fullName, logoLink, isDeleted } = data
+
+        if (!data.name) return res.status(400).send({ status: false, message: "name is Required" })
+        if (!data.fullName) return res.status(400).send({ status: false, message: "fullName is Required" })
+        if (!data.logoLink) return res.status(400).send({ status: false, message: "logoLink is Required" })
+       
         //Validate the body
 
         if (!validator.isValidBody(data)) {
@@ -19,7 +24,7 @@ const createCollage = async (req, res) => {
         //validate the name
 
         if (!validator.isValid(name)) {
-            return res.status(400).send({ status: false, Msg: "College Name is reuired" })
+            return res.status(400).send({ status: false, Msg: "College Name is reuired" }) 
         }
 
         // Validation of name in lowercase
@@ -31,13 +36,13 @@ const createCollage = async (req, res) => {
         //validate the full name
 
         if (!validator.isValid(fullName)) {
-            return res.status(400).send({ status: false, Msg: "Enter the full name of college" })
+            return res.status(400).send({ status: false, Msg: "Enter the full name of college" }) //not work
         }
 
         // validate the logolink 
 
         if (!validator.isValid(logoLink)) {
-            return res.status(400).send({ status: false, msg: "Valid Logo link is required" })
+            return res.status(400).send({ status: false, msg: "Valid Logo link is required" })  //not work
         }
 
         // Validate the Link of the logo
