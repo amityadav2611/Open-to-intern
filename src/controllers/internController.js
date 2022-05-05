@@ -93,12 +93,8 @@ const createIntern = async (req, res) => {
         res.status(500).send({ status: false, Error: err.message })
     }
 }
-<<<<<<< HEAD
 
 
 
 
 module.exports = { createIntern }
-=======
-module.exports = { createIntern}
->>>>>>> 44fd413fd8f5a85ab0cb8fc18eb7a47c650c3f0f
