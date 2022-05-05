@@ -19,7 +19,7 @@ const createCollage = async (req, res) => {
 
         //validate the name
 
-        if (!validator.isValid(data.name)) {
+        if (!validator.isValid(data.name)){
             return res.status(400).send({ status: false, Msg: "College Name is reuired" })
         }
 
@@ -38,7 +38,7 @@ const createCollage = async (req, res) => {
         // validate the logolink 
 
         if (!validator.isValid(logoLink)) {
-            return res.status(400).send({ status: false, msg: " Logo link is required" })
+            return res.status(400).send({ status: false, msg: "Valid Logo link is required" })
         }
 
         // Validate the Link of the logo
