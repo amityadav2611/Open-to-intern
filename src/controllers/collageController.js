@@ -91,10 +91,14 @@ const createCollage = async (req, res) => {
     }
 }
 
+<<<<<<< HEAD
 
 
 
 //get College Details with intern data
+=======
+//////////////////////////////////////////////////////////////////////////////get Collage Details///////////////////////////////////////////////////////////////////
+>>>>>>> 44fd413fd8f5a85ab0cb8fc18eb7a47c650c3f0f
 
 const collegeDetails = async (req, res) => {
     try {
@@ -154,11 +158,14 @@ const collegeDetails = async (req, res) => {
             interns: InternsInCollege.length ? InternsInCollege : { message: "No one applied for internship in this college" }
 
         }
-
-
         return res.status(200).send({ status: true, message: "College Details", Data: finalData })
 
+    } catch (err) {
+        res.status(500).send({ status: false, message: err.message })
+    }
+}
 
+<<<<<<< HEAD
     } catch (err) {
         res.status(500).send({ status: false, message: err.message })
     }
@@ -167,3 +174,71 @@ const collegeDetails = async (req, res) => {
 
 module.exports.createCollage = createCollage;
 module.exports.collegeDetails = collegeDetails
+=======
+
+module.exports.createCollage = createCollage;
+module.exports.collegeDetails = collegeDetails
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//create
+// if (Object.keys(data).length == 0) return res.status(400).send({ status: false, Error: "Please fill the college data" })
+// if (!data.name) return res.status(400).send({ status: false, Error: "Name is Required" })
+// if (!data.fullName) return res.status(400).send({ status: false, Error: "fullName is Required" })
+// if (!data.logoLink) return res.status(400).send({ status: false, Error: "logoLink is Required" })
+
+// let nameString = /^[A-Za-z\s]+$/
+// if (!nameString.test(data.name)) return res.status(400).send({ status: false, Error: "Name must be in String" })
+// if (!nameString.test(data.fullName)) return res.status(400).send({ status: false, Error: "fullName must be in String" })
+
+// let nameCheck = await collageModel.findOne({ name: data.name })
+// if (nameCheck) return res.status(401).send({ status: false, Error: "name is already used" })
+
+
+//get College Details with intern data
+
+//get
+ // let collegeName = req.query
+        // if (!collegeName) return res.status(400).send({ status: false, Error: "Enter College Name" });
+        // let collName = /^[A-Za-z\s]+$/
+        // if (!collName.test(collegeName)) return res.status(400).send({ status: false, Error: "Collage name only in Alphabetics" })
+
+        // let getCollegeData = await collageModel.findOne({ name: collegeName }).select({ name: 1, fullName: 1, logoLink: 1 });
+        // if (!getCollegeData) return res.status(404).send({ status: false, Error: "College not found! check the name and try again" });
+
+        // let { ...data } = getCollegeData._doc
+        // // console.log(data)
+
+        // let getInterns = await internModel.find({ collegeId: data._id }).select({ name: 1, email: 1, mobile: 1 });
+        // //console.log(getInterns)
+        // if (!getInterns) return res.status(404).send({ status: false, Error: "No interns found" });
+
+        // delete (data._id);
+        // data.interests = getInterns;
+
+        // res.status(200).send({ status: true, Message: "Collage details", data: data });
+>>>>>>> 44fd413fd8f5a85ab0cb8fc18eb7a47c650c3f0f
