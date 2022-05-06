@@ -10,15 +10,10 @@ const createIntern = async (req, res) => {
     try {
 
         const body = req.body;
-<<<<<<< HEAD
         const { name, mobile, email, collegeName, isDeleted } = body;
 
 
 
-=======
-         const { name, mobile, email, collegeName, isDeleted } = body;
-         
->>>>>>> 636655a9db451a7cf35c95a4050456c0e53cb7fa
         // Validate body
 
         if (!validator.isValidBody(body)) {
@@ -30,7 +25,6 @@ const createIntern = async (req, res) => {
         if (!body.name) {
             return res.status(400).send({ status: false, msg: "Intern name is required" });
         }
-        if(!body.name) return res.status(400).send({status: false, Error: "Name is Required"})
 
         // Validate mobile
 
@@ -86,15 +80,12 @@ const createIntern = async (req, res) => {
             }
         }
 
-<<<<<<< HEAD
 
         if (isDeleted === true) {
             return res.status(400).send({ status: false, msg: "New entries can't be deleted" });
         }
 
         
-=======
->>>>>>> 636655a9db451a7cf35c95a4050456c0e53cb7fa
         let collegeData = await collageModel.findOne({ name: collegeName })
         if (!collegeData) {
             return res.status(404).send({ status: false, msg: "collegeName invalid" })
@@ -103,10 +94,7 @@ const createIntern = async (req, res) => {
 
 
         const collegeId = collegeData._id
-<<<<<<< HEAD
 
-=======
->>>>>>> 636655a9db451a7cf35c95a4050456c0e53cb7fa
 
         // Finally the registration of intern is successful
 
