@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-//const ObjectId = mongoose.Schema.Types.ObjectId
+const mongoose = require('mongoose')
 
 const collageSchema = new mongoose.Schema({
     name: {
@@ -18,11 +17,6 @@ const collageSchema = new mongoose.Schema({
         trim: true,
         required: 'please link a logolink'
     },
-    // interests: {
-    //     type: ObjectId,
-    //     ref: "intern"
-    // },
-
     isDeleted: {
         type: Boolean,
         default: false

@@ -14,10 +14,6 @@ const createIntern = async (req, res) => {
         //const { name, mobile, email, collegeId, isDeleted } = body;
 
          if(!body.name) return res.status(400).send({status: false, Error: "Name is Required"})
-        // if(!body.email) return res.status(400).send({status: false, Error: "Email is Required"})
-        // if(!body.mobile) return res.status(400).send({status: false, Error: "Mobile Number is Required"})
-        //if(!body.collegeId) return res.send(400).send({status: false, Error: "CollegeId is Required"})
-
         // Validate body
 
         if (!validator.isValidBody(body)) {
@@ -53,13 +49,6 @@ const createIntern = async (req, res) => {
         if (!validator.isValidEmail(email)) {
             return res.status(400).send({ status: false, msg: "Valid email is required" });
         }
-
-        // validate collegeName
-
-        // if (!collegeName) {
-        //     return res.status(400).send({ status: false, msg: "CollegeName is required" }); //not work properly
-        // }
-
         // Checking duplicate entry of intern
 
         let duplicateEntries = await internModel.find();
