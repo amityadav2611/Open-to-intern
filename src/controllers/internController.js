@@ -1,5 +1,5 @@
 const internModel = require("../models/internModel")
-const validator = require("../Validator/validator")
+const validator = require("../Validator/validation")
 const validEmail = require("email-validator")
 const collageModel = require("../models/collageModel")
 
@@ -10,10 +10,10 @@ const createIntern = async (req, res) => {
     try {
 
         const body = req.body;
-         const { name, mobile, email, collegeName, isDeleted } = body;
-        //const { name, mobile, email, collegeId, isDeleted } = body;
+        const { name, mobile, email, collegeName, isDeleted } = body;
 
-         if(!body.name) return res.status(400).send({status: false, Error: "Name is Required"})
+
+
         // Validate body
 
         if (!validator.isValidBody(body)) {
@@ -22,13 +22,13 @@ const createIntern = async (req, res) => {
 
         // Validate name
 
-        if (!validator.isValid(name)) {
+        if (!body.name) {
             return res.status(400).send({ status: false, msg: "Intern name is required" });
         }
 
         // Validate mobile
 
-        if (!validator.isValid(mobile)) {
+        if (!body.mobile) {
             return res.status(400).send({ status: false, msg: "Mobile number is required" });
         }
 
@@ -40,7 +40,7 @@ const createIntern = async (req, res) => {
 
         // Validate email
 
-        if (!validator.isValid(email)) {
+        if (!body.email) {
             return res.status(400).send({ status: false, msg: "email is required" });;
         }
 
@@ -49,6 +49,15 @@ const createIntern = async (req, res) => {
         if (!validator.isValidEmail(email)) {
             return res.status(400).send({ status: false, msg: "Valid email is required" });
         }
+
+        //validating college name
+
+        if (!body.collegeName) {
+            return res.status(400).send({ status: false, msg: "collegeName is required" });;
+        }
+
+
+
         // Checking duplicate entry of intern
 
         let duplicateEntries = await internModel.find();
@@ -71,13 +80,21 @@ const createIntern = async (req, res) => {
             }
         }
 
-        let collegeData = await collageModel.findOne({ collegeId: collegeName })
+
+        if (isDeleted === true) {
+            return res.status(400).send({ status: false, msg: "New entries can't be deleted" });
+        }
+
+        
+        let collegeData = await collageModel.findOne({ name: collegeName })
         if (!collegeData) {
             return res.status(404).send({ status: false, msg: "collegeName invalid" })
         }
 
+
+
         const collegeId = collegeData._id
-        console.log(collegeId)
+
 
         // Finally the registration of intern is successful
 

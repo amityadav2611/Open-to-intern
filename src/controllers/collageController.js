@@ -1,6 +1,6 @@
 const collageModel = require("../models/collageModel")
 const internModel = require("../models/internModel")
-const validator = require("../Validator/validator")
+const validator = require("../Validator/validation")
 
 ////////////////////////////////////////////////Create Collage////////////////////////////////////////////////////////////////
 
@@ -10,9 +10,9 @@ const createCollage = async (req, res) => {
 
         let data = req.body      //data receiving from the request body
 
-        if(!data.name) return res.status(400).send({status: false, Error: "Name is Required"})
-        if(!data.fullName) return res.status(400).send({status: false, Error: "fullName is Required"})
-        if(!data.logoLink) return res.status(400).send({status: false, Error: "logoLink is Required"})
+        // if(!data.name) return res.status(400).send({status: false, Error: "Name is Required"})
+        // if(!data.fullName) return res.status(400).send({status: false, Error: "fullName is Required"})
+        // if(!data.logoLink) return res.status(400).send({status: false, Error: "logoLink is Required"})
 
         const { name, fullName, logoLink, isDeleted } = data
         //Validate the body
@@ -23,7 +23,7 @@ const createCollage = async (req, res) => {
 
         //validate the name
 
-        if (!validator.isValid(data.name)) {
+        if (!data.name) {
             return res.status(400).send({ status: false, Msg: "College Name is reuired" }) 
         }
 
@@ -35,14 +35,14 @@ const createCollage = async (req, res) => {
 
         //validate the full name
 
-        if (!validator.isValid(data.fullName)) {
+        if (!data.fullName) {
             return res.status(400).send({ status: false, Msg: "Enter the full name of college" })
         }
 
         // validate the logolink 
 
-        if (!validator.isValid(data.logoLink)) {
-            return res.status(400).send({ status: false, msg: "Valid Logo link is required" })
+        if (!data.logoLink) {
+            return res.status(400).send({ status: false, msg: " Logo link is required" })
         }
 
         // Validate the Link of the logo
