@@ -10,10 +10,6 @@ const createCollage = async (req, res) => {
 
         let data = req.body      //data receiving from the request body
 
-        if(!data.name) return res.status(400).send({status: false, Error: "Name is Required"})
-        if(!data.fullName) return res.status(400).send({status: false, Error: "fullName is Required"})
-        if(!data.logoLink) return res.status(400).send({status: false, Error: "logoLink is Required"})
-
         const { name, fullName, logoLink, isDeleted } = data
         //Validate the body
 
@@ -26,6 +22,7 @@ const createCollage = async (req, res) => {
         if (!validator.isValid(data.name)) {
             return res.status(400).send({ status: false, Msg: "College Name is reuired" }) 
         }
+        if(!data.name) return res.status(400).send({status: false, Error: "Name is Required"})
 
         // Validation of name in lowercase
 
@@ -38,6 +35,7 @@ const createCollage = async (req, res) => {
         if (!validator.isValid(data.fullName)) {
             return res.status(400).send({ status: false, Msg: "Enter the full name of college" })
         }
+        if(!data.fullName) return res.status(400).send({status: false, Error: "fullName is Required"})
 
         // validate the logolink 
 
@@ -50,6 +48,7 @@ const createCollage = async (req, res) => {
         if (!validator.isValidLink(logoLink)) {
             return res.status(400).send({ status: false, msg: "Valid Logo link is required" })
         }
+        if(!data.logoLink) return res.status(400).send({status: false, Error: "logoLink is Required"})
 
 
         //Abbrevation must be in single word
