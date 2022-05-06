@@ -72,7 +72,6 @@ const createIntern = async (req, res) => {
         }
 
         let collegeData = await collageModel.findOne({ collegeId: collegeName })
-        console.log(collegeData)
         if (!collegeData) {
             return res.status(404).send({ status: false, msg: "collegeName invalid" })
         }
