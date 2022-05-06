@@ -70,7 +70,6 @@ const createIntern = async (req, res) => {
             }
         }
 
-        if(!body.collegeId) return res.status(400).send({status: false, Error: "CollageId is Required"})
         let collegeData = await collageModel.findOne({ name: collegeName })
         if (!collegeData) {
             return res.status(404).send({ status: false, msg: "collegeName invalid" })
