@@ -67,7 +67,7 @@ const createIntern = async (req, res) => {
 
             //Cheking duplicate email
 
-            const IsEmailUsed = await internModel.find({ email: email });
+            const IsEmailUsed = await internModel.findOne({ email: email });
             if (IsEmailUsed.length !== 0) {
                 return res.status(409).send({ status: false, msg: "email already exists" });
             }
