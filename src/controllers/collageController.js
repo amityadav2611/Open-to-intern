@@ -1,6 +1,6 @@
 const collageModel = require("../models/collageModel")
 const internModel = require("../models/internModel")
-const validator = require("../Validator/validation")
+const validator = require("../Validator/validator")
 
 ////////////////////////////////////////////////Create Collage////////////////////////////////////////////////////////////////
 
@@ -133,6 +133,7 @@ const collegeDetails = async (req, res) => {
         // if name is invalid
 
         const collegeNames = await collageModel.findOne({ name: collegeName })
+        console.log(collegeNames)
 
         if (!collegeNames) {
             return res.status(404).send({ status: false, message: "College Not Found, Please Check College Name" })
@@ -140,6 +141,7 @@ const collegeDetails = async (req, res) => {
         const collegeId = collegeNames._id
 
         const InternsInCollege = await internModel.find({ collegeId: collegeId }).select({ _id: 1, email: 1, name: 1, mobile: 1 })
+        console.log(InternsInCollege)
 
         const { name, fullName, logoLink } = collegeNames
 

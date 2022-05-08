@@ -1,5 +1,5 @@
 const internModel = require("../models/internModel")
-const validator = require("../Validator/validation")
+const validator = require("../Validator/validator")
 const validEmail = require("email-validator")
 const collageModel = require("../models/collageModel")
 
@@ -75,6 +75,7 @@ const createIntern = async (req, res) => {
             // Checking duplicate mobile    
 
             const duplicateMobile = await internModel.findOne({ mobile: mobile })
+            console.log("dumber --> ",duplicateMobile)
             if (duplicateMobile) {
                 return res.status(409).send({ status: false, msg: "Mobile number already exists" });
             }
