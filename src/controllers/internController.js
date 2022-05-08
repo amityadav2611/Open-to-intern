@@ -1,5 +1,5 @@
 const internModel = require("../models/internModel")
-const validator = require("../Validator/validator")
+const validator = require("../Validator/validation")
 const validEmail = require("email-validator")
 const collageModel = require("../models/collageModel")
 

@@ -1,6 +1,6 @@
 const collageModel = require("../models/collageModel")
 const internModel = require("../models/internModel")
-const validator = require("../Validator/validator")
+const validator = require("../Validator/validation")
 
 ////////////////////////////////////////////////Create Collage////////////////////////////////////////////////////////////////
 
